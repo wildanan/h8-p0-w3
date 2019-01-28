@@ -1,14 +1,20 @@
 function groupAnimals (arr){
-    kebunBinatang = []
+    var kebunBinatang = []
+    arr.sort()
   
     for (var i = 0; i < arr.length; i++){
       var kandang = []
-      for (var j = 0; j < kebunBinatang; j++){
+      var check = false
+      for (var j = 0; j < kebunBinatang.length; j++){
         if (kebunBinatang[j][0][0] === arr[i][0]){
-          kandang.push(arr[i])
+          kebunBinatang[j].push(arr[i])
+          check = true
         }
       }
-       kebunBinatang.push(kandang)
+      if (check === false){
+        kandang.push(arr[i])
+        kebunBinatang.push(kandang)
+      }
     }
    return kebunBinatang
   }
